@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="Reg" Height="300" Width="350">
     <Grid x:Name="reg" Background="#2e3137">
-        <TextBox x:Name="fname" HorizontalAlignment="Left" Margin="118,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" Height="33" Background="#545d6a" FontWeight="Bold" />
-        <TextBox x:Name="lname" HorizontalAlignment="Left" Margin="118,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" Height="33" Background="#545d6a" FontWeight="Bold" />
-        <TextBox x:Name="mail" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33"  Background="#545d6a" FontWeight="Bold" Margin="118,122,0,0"/>
+        <TextBox x:Name="fname" Margin="118,14,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="lname" Margin="118,63,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="mail" VerticalAlignment="Top" Margin="118,122,0,0"/>
         <Button x:Name="button" Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="131,214,0,0" VerticalAlignment="Top" Width="140" Height="45" Background="#545d6a" FontWeight="Bold" Click="button_Click" Foreground="White"/>
         <PasswordBox HorizontalAlignment="Left" Margin="119,177,0,0" VerticalAlignment="Top" Width="166" Height="29" Background="#545d6a"/>
         <Label Content="Ведите Имя" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" Foreground="White" />
@@ -18,4 +18,16 @@
         <Label Content="Ведите Пароль" HorizontalAlignment="Left" Margin="15,180,0,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
+    <Window.Resources>
+        <Style TargetType="Control">
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Height" Value="33"/>
+            <Setter Property="Width" Value="166"/>
+            <Setter Property="Background" Value="#545d6a"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
 </Window>
