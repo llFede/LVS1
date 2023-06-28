@@ -1,6 +1,8 @@
 using CommunityToolkit.Mvvm.Input;
 using LVS1.wpf.Data;
 using LVS1.wpf.Navigation;
+using LVS1.wpf.Views;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LVS1.wpf.ViewModels;
@@ -18,11 +20,17 @@ public partial class FloorListViewModel : ViewModelBase
         _serviceProvider = serviceProvider;
     }
 
-    public IEnumerable<FloorViewModel> Floors => _context
+    public IEnumerable<FloorItemViewModel> Floors => _context
         .Floors
+        .Include(floor => floor.Rooms)
         .ToArray()
-        .Select(floor => _serviceProvider.GetRequiredService<FloorViewModel>().SetModel(floor));
+        .Select(floor => _serviceProvider.GetRequiredService<FloorItemViewModel>().SetModel(floor));
 
+    public Models.Floor? SelectedFloor { get; set; }
+
+    public FloorViewModel SelectedFloorModel =>
+        _serviceProvider.GetRequiredService<FloorViewModel>().SetModel(SelectedFloor);
+    
     [RelayCommand]
     public async Task AddFloor()
     {

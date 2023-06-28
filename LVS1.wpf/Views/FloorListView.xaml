@@ -17,15 +17,21 @@
         <StackPanel>
             <Button Command="{Binding AddFloorCommand}">Добавить этаж</Button>
         
-            <ListView ItemsSource="{Binding Floors}">
+            <ListView SelectedItem="{Binding SelectedFloor}" ItemsSource="{Binding Floors}">
                 <ListView.Resources>
-                    <DataTemplate DataType="{x:Type viewmodels:FloorViewModel}">
-                        <views:FloorView/>
+                    <DataTemplate DataType="{x:Type viewmodels:FloorItemViewModel}">
+                        <views:FloorItemView/>
                     </DataTemplate>
                 </ListView.Resources>
             </ListView>
         </StackPanel>
-        <ContentControl Grid.Column="1"></ContentControl>
+        <ContentControl Content="{Binding SelectedFloorModel}" Grid.Column="1">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:FloorViewModel}">
+                    <views:FloorView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
     
     

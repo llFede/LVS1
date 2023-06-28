@@ -1,19 +1,18 @@
 using LVS1.wpf.Data;
-using LVS1.wpf.ViewModels;
 
 namespace LVS1.wpf.ViewModels;
 
-public class FloorViewModel : ViewModelBase
+public class FloorItemViewModel : ViewModelBase
 {
     private readonly ApplicationDbContext _context;
 
-    public FloorViewModel(ApplicationDbContext context)
+    public FloorItemViewModel(ApplicationDbContext context)
     {
         _context = context;
     }
 
     public Models.Floor Floor { get; set; }
-    public FloorViewModel SetModel(Models.Floor floor)
+    public FloorItemViewModel SetModel(Models.Floor floor)
     {
         Floor = floor;
         return this;
