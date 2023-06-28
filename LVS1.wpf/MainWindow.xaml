@@ -21,6 +21,9 @@
                     <DataTemplate DataType="{x:Type viewmodels:FloorListViewModel}">
                         <views:FloorListView/>
                     </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:CreateFloorViewModel}">
+                        <views:CreateFloorView/>
+                    </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
     </Grid>

@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:LVS1.wpf.ViewModels"
+             xmlns:views="clr-namespace:LVS1.wpf.Views"
              xmlns:local="clr-namespace:LVS1.wpf.Views"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+        <StackPanel>
+            <Button Command="{Binding AddFloorCommand}">Добавить этаж</Button>
+        
+            <ListView ItemsSource="{Binding Floors}">
+                <ListView.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:FloorViewModel}">
+                        <views:FloorView/>
+                    </DataTemplate>
+                </ListView.Resources>
+            </ListView>
+        </StackPanel>
+        <ContentControl Grid.Column="1"></ContentControl>
     </Grid>
+    
+    
 </UserControl>

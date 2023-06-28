@@ -11,4 +11,6 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Models.Floor> Floors { get; set; }
+    public DbSet<Room> Rooms { get; set; }
 }
