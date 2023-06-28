@@ -4,10 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LVS1.wpf"
+        xmlns:viewmodels="clr-namespace:LVS1.wpf.ViewModels"
+        xmlns:views="clr-namespace:LVS1.wpf.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="325" Width="320" FontSize="14" Background="#04c582">
-
-    <Border x:Name="logIN" Background="#2e3137" Margin="20" CornerRadius="20">
+        Title="MainWindow" Height="325" Width="320" FontSize="14" Background="DarkGray">
+    <!--Background="#04c582"-->
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ContentControl Content="{Binding CurrentViewModel}" >
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
+                        <views:RegisterView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                        <views:LoginView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:FloorListViewModel}">
+                        <views:FloorListView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:CreateFloorViewModel}">
+                        <views:CreateFloorView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+    </Grid>
+    
+    <!--<Border x:Name="logIN" Background="#2e3137" Margin="20" CornerRadius="20">
         <Grid>
             <StackPanel Margin="20,20,20,20">
                 <Label Content="Login" Foreground="White" FontSize="25" HorizontalContentAlignment="Center" Height="45"/>
@@ -28,6 +49,6 @@
             <Label Content="Введите E-mail:" HorizontalAlignment="Left" Margin="70,54,0,0" VerticalAlignment="Top" Foreground="White"/>
 
         </Grid>
-    </Border>
+    </Border>-->
 
 </Window>

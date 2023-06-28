@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LVS1.wpf.ViewModels;
 
 namespace LVS1.wpf
 {
@@ -20,14 +21,16 @@ namespace LVS1.wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainViewModel viewModel)
         {
+            DataContext = viewModel;
             InitializeComponent();
         }
 
+        /*
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (login.Text.Length > 0)
+            if ("login".Length > 0)
             {
                
                     Main wndw = new Main();
@@ -52,6 +55,6 @@ namespace LVS1.wpf
         private void click_2(object sender, MouseButtonEventArgs e)
         {
 
-        }
+        }*/
     }
 }
